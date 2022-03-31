@@ -24,15 +24,14 @@ def main():
     driver.find_element(By.NAME, "login-password").send_keys(password)
     driver.find_element(By.NAME, "login-password").submit()
 
-    driver.find_element_by_link_text("Start the Clock").click()
+    driver.find_element(By.LINK_TEXT, "Start the Clock").click()
 
     for _ in range(100):
         sleep(sleeptime)
         qlist = list(driver.find_element(By.ID, "question").text)
         if "×" in qlist: qlist[qlist.index("×")] = "*"
         elif "÷" in qlist: qlist[qlist.index("÷")] = "/"
-        q = "".join(qlist)
-        a = str(int(eval(q)))
+        a = str(int(eval("".join(qlist))))
 
         driver.find_element(By.ID, "calculator-display").send_keys(a)
         if useEnter: driver.find_element(By.ID, "calculator-display").send_keys(Keys.ENTER)

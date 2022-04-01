@@ -10,13 +10,14 @@ def main():
     print("\n\nBOT DETAILS\n-----------")
     sleeptime = float(input("QUESION DELAY TIME: "))
     useEnter = bool(input("USE ENTER: "))
-    print("\n\nSELENIUM\n--------")
-
+    
     from selenium import webdriver
     from selenium.webdriver.common.keys import Keys
     from selenium.webdriver.common.by import By
+    from selenium.webdriver.chrome.service import Service
+    from webdriver_manager.chrome import ChromeDriverManager
 
-    driver = webdriver.Chrome('./chromedriver')
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 
     driver.get("https://www.drfrostmaths.com/timestables-game.php")
 

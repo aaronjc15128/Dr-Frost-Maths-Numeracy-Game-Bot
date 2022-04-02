@@ -5,8 +5,10 @@ The game can be found [here](https://www.drfrostmaths.com/timestables.php).
 
 The max score is 70 and the bot can get it everytime.
 
-## Installs:
+## Installs & Running:
 *Python*, *selenium* & *webdriver_manager* all need to be installed. 
+
+Run the Python script as you would any other Python script.
 
 ## Setup:
 The window will prompt you to give your login details.

@@ -5,6 +5,11 @@ The game can be found [here](https://www.drfrostmaths.com/timestables.php).
 
 The max score is 70 and the bot can get it everytime.
 
+## Installs & Running:
+*Python*, *selenium* & *webdriver_manager* all need to be installed. 
+
+Run the Python script as you would any other Python script.
+
 ## Setup:
 The window will prompt you to give your login details.
 
@@ -15,6 +20,6 @@ In the *USE ENTER* field type either *true* or *false*. If set to *true*, the bo
 If set to *false*, the bot won't press the enter key and let dfm forward on to the next question.
 
 ## Process:
-Selenium will print many logs during the process that the bot is running.
+WebDriver Manager and Selenium may write logs during the proccess.
 
-Note: After the game has ended, close the chrome window before closing the python window.
+Note: After the game has ended, close the chrome window before closing the python window to ensure a smooth close.

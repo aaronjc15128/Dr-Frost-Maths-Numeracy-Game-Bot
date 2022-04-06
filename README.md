@@ -20,6 +20,6 @@ In the *USE ENTER* field type either *true* or *false*. If set to *true*, the bo
 If set to *false*, the bot won't press the enter key and let dfm forward on to the next question.
 
 ## Process:
-Selenium will print many logs during the process that the bot is running.
+WebDriverManager and Selenium may write logs during the proccess.
 
-Note: After the game has ended, close the chrome window before closing the python window.
+Note: After the game has ended, close the chrome window before closing the python window to ensure a smooth close.

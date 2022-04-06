@@ -15,6 +15,7 @@ def main():
     from selenium.webdriver.common.keys import Keys
     from selenium.webdriver.common.by import By
     from selenium.webdriver.chrome.service import Service
+    from selenium.common.exceptions import ElementNotInteractableException
     from webdriver_manager.chrome import ChromeDriverManager
 
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
@@ -34,8 +35,14 @@ def main():
         elif "÷" in qlist: qlist[qlist.index("÷")] = "/"
         a = str(int(eval("".join(qlist))))
 
-        driver.find_element(By.ID, "calculator-display").send_keys(a)
-        if useEnter: driver.find_element(By.ID, "calculator-display").send_keys(Keys.ENTER)
+        try:
+            driver.find_element(By.ID, "calculator-display").send_keys(a)
+            if useEnter: driver.find_element(By.ID, "calculator-display").send_keys(Keys.ENTER)
+        except ElementNotInteractableException:
+            break
+
+    print("\n\n\nPROCESS FINISHED\n\nDFMBot\nby Aaron Chauhan")
+
 
 if __name__ == "__main__":
     main()

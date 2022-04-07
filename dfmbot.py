@@ -1,6 +1,7 @@
 def main():
     from time import sleep
     from os import system
+    import sys
     
     # clearing terminal
     system("cls")
@@ -10,8 +11,14 @@ def main():
     email = input("EMAIL: ")
     password = input("PASSWORD: ")
     print("\n\nBOT DETAILS\n-----------")
-    sleeptime = float(input("QUESION DELAY TIME: "))
-    useEnter = bool(input("USE ENTER: "))
+    
+    # if user doesn't input float -> make sleeptime = 0.3
+    try: sleeptime = float(input("QUESION DELAY TIME: "))
+    except ValueError: sleeptime = 0.3
+    
+    # if user doesn't input bool -> make useEnter = true
+    try: useEnter = bool(input("USE ENTER: "))
+    except ValueError: useEnter = True
     print("\n\nPROCESS LOGS\n------------")
     
 
@@ -21,6 +28,7 @@ def main():
     from selenium.webdriver.common.by import By
     from selenium.webdriver.chrome.service import Service
     from selenium.common.exceptions import ElementNotInteractableException
+    from selenium.common.exceptions import NoSuchElementException
     from webdriver_manager.chrome import ChromeDriverManager
 
     # installing chromdriver
@@ -36,7 +44,11 @@ def main():
     driver.find_element(By.NAME, "login-password").submit()
 
     # clicking start button
-    driver.find_element(By.LINK_TEXT, "Start the Clock").click()
+    # check for incorrect email/password -> print a log
+    try: driver.find_element(By.LINK_TEXT, "Start the Clock").click()
+    except NoSuchElementException:
+        print("\n\n\nINCORRECT EMAIL/PASSWORD\n\nDFMBot\nby Aaron Chauhan")
+        sys.exit()
 
 
     # loop 100 times

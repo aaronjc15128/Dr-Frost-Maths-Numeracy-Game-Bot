@@ -59,8 +59,8 @@ def main():
         qlist = list(driver.find_element(By.ID, "question").text)
         
         # converting symbols
-        if "×" in qlist: qlist[qlist.index("×")] = "*"
-        elif "÷" in qlist: qlist[qlist.index("÷")] = "/"
+        if "\u00D7" in qlist: qlist[qlist.index("\u00D7")] = "*"
+        elif "\u00F7" in qlist: qlist[qlist.index("\u00F7")] = "/"
         
         # joining up list, finding answer
         a = str(int(eval("".join(qlist))))
